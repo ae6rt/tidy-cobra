@@ -1,4 +1,4 @@
-module go-cobra
+module org.carpediem/tidy-cobra
 
 go 1.14
 
