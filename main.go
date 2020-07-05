@@ -6,6 +6,10 @@ import (
 	"github.com/spf13/cobra"
 )
 
+const (
+	timesFlag = "times"
+)
+
 type database struct {
 }
 
@@ -16,9 +20,9 @@ func main() {
 		cmd := &cobra.Command{
 			Use: "subcommand",
 			RunE: func(cmd *cobra.Command, args []string) error {
-				timesOption, err := cmd.Flags().GetInt("times")
+				timesOption, err := cmd.Flags().GetInt(timesFlag)
 				if err != nil {
-					panic("flag times must exist")
+					panic("flag " + timesFlag + " must exist")
 				}
 				log.Printf("got times: %d\n", timesOption)
 				return nil
@@ -26,7 +30,7 @@ func main() {
 		}
 
 		var times int
-		cmd.Flags().IntVarP(&times, "times", "t", 1, "times to do a thing")
+		cmd.Flags().IntVarP(&times, timesFlag, "t", 1, "times to do a thing")
 		return cmd
 	}
 
