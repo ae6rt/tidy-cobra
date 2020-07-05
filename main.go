@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"log"
 
 	"github.com/spf13/cobra"
@@ -21,7 +20,7 @@ func main() {
 				if err != nil {
 					panic("flag times must exist")
 				}
-				fmt.Printf("got times: %d\n", timesOption)
+				log.Printf("got times: %d\n", timesOption)
 				return nil
 			},
 		}
